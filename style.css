@@ -523,6 +523,8 @@ footer p {
     
     .checkbox-group {
         grid-template-columns: 1fr; /* Single column on mobile */
+        text-align: center; 
+        justify-content: center; 
     }
     
     /* Ensure sections don't overflow and are properly centered */
@@ -690,7 +692,8 @@ footer p {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
-    text-align: left;
+    text-align: center; 
+    justify-content: center; 
 }
 
 .checkbox-item {
