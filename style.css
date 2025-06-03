@@ -251,6 +251,7 @@ section > p {
     color: #555;
     line-height: 1.7; /* Better line spacing */
     font-size: 1.1rem; /* Larger text for bigger cards */
+    text-align: center;
 }
 
 /* Services Section - Package Cards with 3D Flip */
