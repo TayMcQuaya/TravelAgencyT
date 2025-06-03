@@ -64,7 +64,7 @@ nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
-    font-size: 1.1rem; /* Increased from default for larger text */
+    font-size: 1.3rem; /* Increased from 1.1rem for larger text */
     transition: color 0.3s ease;
     padding: 8px 12px; /* Add padding for better click area */
 }
@@ -159,7 +159,7 @@ nav ul li a:hover {
 
 /* General Section Styling */
 section {
-    padding: 4rem 10px; /* Minimal side padding */
+    padding: 3rem 10px; /* Increased from 2rem for better mobile spacing */
     text-align: center;
     overflow-x: hidden; /* Prevent horizontal scrolling in sections */
     width: 100%; /* Full width */
@@ -181,6 +181,12 @@ section > p {
     margin: 0 auto 2rem auto;
 }
 
+/* About Bali Section - White background to match website */
+#about-bali {
+    background-color: #ffffff; /* Pure white background */
+    padding: 7rem 10px; /* Increased from 6rem to 7rem for more space around large cards */
+}
+
 /* About Bali Section - Insight Cards */
 .bali-insights {
     display: flex;
@@ -190,7 +196,8 @@ section > p {
     max-width: 1800px; /* Much wider container for huge cards */
     margin: 0 auto; /* Center the container */
     overflow-x: hidden; /* Prevent horizontal overflow */
-    padding: 0 30px; /* Increased padding for breathing room */
+    padding: 40px 30px; /* Increased top/bottom padding from 0 to 40px to prevent animation cut-off */
+    min-height: 500px; /* Ensure minimum height to accommodate card animations */
 }
 
 .insight-card {
@@ -215,7 +222,7 @@ section > p {
 
 .insight-card img {
     width: 100%;
-    height: 250px; /* Increased height for larger widescreen images */
+    height: 320px; /* Increased from 250px to 320px for larger images */
     object-fit: cover; /* Ensure image covers the area well */
     border-radius: 15px; /* More rounded corners for larger cards */
     margin-bottom: 25px; /* Increased spacing for larger cards */
@@ -249,8 +256,10 @@ section > p {
 
 .package-card {
     background-color: transparent; /* Needed for 3D effect */
-    width: 280px;
-    height: 400px; /* Increased from 380px to accommodate larger images */
+    width: calc(100% - 20px); /* Full width minus minimal margins */
+    margin: 0 10px 30px 10px; /* Minimal equal margins on both sides */
+    max-width: 300px; /* Limit maximum width */
+    height: 320px; /* Smaller height for mobile to prevent cut-off */
     perspective: 1000px; /* Depth for 3D effect */
     cursor: pointer;
     flex-shrink: 0; /* Prevent shrinking */
@@ -282,7 +291,7 @@ section > p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 15px; /* Increased from 10px to 15px for better spacing in larger cards */
 }
 
 .card-front {
@@ -292,17 +301,17 @@ section > p {
 }
 
 .card-front img {
-    width: 180px; /* Increased from 150px to 180px for larger images */
-    height: 180px; /* Increased from 150px to 180px for larger images */
+    width: 180px; /* Keep same image size */
+    height: 180px; /* Keep same image size */
     object-fit: cover;
     border-radius: 50%; /* Circular images */
-    margin-bottom: 10px; /* Reduced margin to fit better */
+    margin-bottom: 10px; /* Increased from 5px for better spacing in larger cards */
     border: 3px solid white;
 }
 
 .card-front h3 {
-    font-size: 1.4rem; /* Slightly smaller to accommodate larger image */
-    margin: 5px 0 0 0;
+    font-size: 1.4rem; /* Keep same font size */
+    margin: 5px 0 0 0; /* Added some margin back for better spacing in larger cards */
 }
 
 .card-back {
@@ -314,12 +323,12 @@ section > p {
 
 .card-back h3 {
     font-size: 1.5rem;
-    margin-bottom: 15px;
+    margin-bottom: 12px; /* Increased from 8px for better spacing in larger cards */
 }
 
 .card-back p {
     font-size: 0.95rem;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Increased from 10px for better spacing in larger cards */
     padding: 0 10px;
 }
 
@@ -486,6 +495,7 @@ footer p {
         width: calc(100% - 20px); /* Full width minus minimal margins */
         margin: 0 10px 30px 10px; /* Minimal equal margins on both sides */
         max-width: 300px; /* Limit maximum width */
+        height: 320px; /* Smaller height for mobile to prevent cut-off */
         box-sizing: border-box; /* Include padding in width calculation */
     }
     
@@ -512,6 +522,27 @@ footer p {
         margin: 0; /* Remove margin */
         width: 100%; /* Full width */
         box-sizing: border-box; /* Include padding in width */
+    }
+
+    .card-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .book-button,
+    .details-button {
+        width: 100% !important; /* Both buttons same width on mobile */
+        text-align: center !important;
+        padding: 12px 24px !important; /* Force same padding as details-button */
+        margin-bottom: 0 !important; /* Remove extra margin, gap handles spacing */
+        font-size: 1rem !important; /* Force same font size as details-button */
+        font-weight: 600 !important; /* Same font weight */
+        border-radius: 6px !important; /* Same border radius */
+        display: inline-block !important; /* Same display type */
+        text-decoration: none !important; /* Remove any text decoration differences */
+        border: none !important; /* Ensure no border differences */
+        cursor: pointer !important; /* Same cursor */
+        transition: all 0.3s ease !important; /* Same transition */
     }
 }
 
@@ -547,7 +578,7 @@ footer p {
     }
 
     section {
-        padding: 2rem 10px; /* Consistent minimal padding */
+        padding: 3rem 10px; /* Increased from 2rem for better mobile spacing */
         margin: 0; /* Remove margins */
         width: 100%; /* Full width */
         box-sizing: border-box; /* Include padding in width */
@@ -674,8 +705,424 @@ footer p {
     display: none !important;
 }
 
+/* Services Section - Extra space for package cards */
 #services {
     overflow-x: hidden; /* Prevent horizontal scrolling */
     width: 100%; /* Ensure full width */
     max-width: 100vw; /* Never exceed viewport width */
+    padding: 7rem 10px; /* Increased from 6rem to 7rem for more space around larger package cards */
+}
+
+/* Booking System Styles */
+
+/* Card Button Layout */
+.card-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.book-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%); /* Green gradient for booking */
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(40, 167, 69, 0.3);
+}
+
+.book-button:hover {
+    background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+}
+
+/* Modal Overlay */
+.booking-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow: hidden; /* Changed from overflow-y: auto to allow sticky header */
+    position: relative;
+    border: 1px solid rgba(0, 119, 204, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: 25px 30px 20px 30px;
+    border-bottom: 2px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    z-index: 10;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-header h2 {
+    color: #0077cc;
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.close-modal, .close-confirmation {
+    font-size: 2rem;
+    color: #adb5bd;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    line-height: 1;
+}
+
+.close-modal:hover, .close-confirmation:hover {
+    color: #0077cc;
+}
+
+.modal-body {
+    padding: 30px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.booking-form h3 {
+    color: #0077cc;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.customer-info h3,
+.pricing-summary h3 {
+    color: #0077cc;
+    margin: 30px 0 20px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-top: 2px solid #e9ecef;
+    padding-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #0077cc;
+    box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.1);
+    outline: none;
+}
+
+.pricing-summary {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.price-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.price-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.price-line.total-price {
+    border-top: 2px solid #0077cc;
+    padding-top: 15px;
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.price-label {
+    color: #555;
+    font-weight: 600;
+}
+
+.price-value {
+    color: #0077cc;
+    font-weight: 600;
+}
+
+.total-price .price-value {
+    color: #28a745;
+    font-size: 1.2rem;
+}
+
+.modal-footer {
+    padding: 20px 30px 30px 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    position: sticky;
+    bottom: 0;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-top: 1px solid #e9ecef;
+    border-radius: 0 0 15px 15px;
+    z-index: 10;
+}
+
+.cancel-button {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(108, 117, 125, 0.3);
+}
+
+.cancel-button:hover {
+    background: linear-gradient(135deg, #495057 0%, #343a40 100%);
+    transform: translateY(-2px);
+}
+
+.confirm-booking-button {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(40, 167, 69, 0.3);
+}
+
+.confirm-booking-button:hover {
+    background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+    transform: translateY(-2px);
+}
+
+/* Confirmation Modal Styles */
+.confirmation-content {
+    text-align: center;
+}
+
+.confirmation-content .check-icon {
+    width: 64px;
+    height: 64px;
+    background-color: #28a745;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 32px;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.confirmation-content h3 {
+    color: #28a745;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+}
+
+.booking-details {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: left;
+    border: 1px solid #dee2e6;
+}
+
+.booking-details p {
+    margin: 8px 0;
+    font-size: 1rem;
+}
+
+.booking-details strong {
+    color: #0077cc;
+}
+
+.confirmation-note {
+    color: #555;
+    font-style: italic;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.close-confirmation-button,
+.view-bookings-button {
+    background: linear-gradient(135deg, #0077cc 0%, #005fa3 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 119, 204, 0.3);
+}
+
+.close-confirmation-button:hover,
+.view-bookings-button:hover {
+    background: linear-gradient(135deg, #005fa3 0%, #003d73 100%);
+    transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 20px;
+    }
+    
+    .card-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .book-button,
+    .details-button {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .cancel-button,
+    .confirm-booking-button,
+    .close-confirmation-button,
+    .view-bookings-button {
+        width: 100%;
+    }
+}
+
+/* Custom Notification Modal */
+.notification-content {
+    max-width: 450px;
+    width: 90%;
+}
+
+.notification-message {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.notification-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.notification-icon.info {
+    color: #0077cc;
+}
+
+.notification-icon.success {
+    color: #28a745;
+}
+
+.notification-icon.warning {
+    color: #ffc107;
+}
+
+.notification-icon.error {
+    color: #dc3545;
+}
+
+#notification-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}
+
+.close-notification,
+.close-notification-button {
+    background: linear-gradient(135deg, #0077cc 0%, #005fa3 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 119, 204, 0.3);
+}
+
+.close-notification:hover,
+.close-notification-button:hover {
+    background: linear-gradient(135deg, #005fa3 0%, #003d73 100%);
+    transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10px;
+    }
 } 

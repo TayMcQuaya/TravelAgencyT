@@ -14,6 +14,7 @@
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about-bali">About Bali</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#" id="bookings-link">Bookings</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -77,7 +78,10 @@
                         <div class="card-back">
                             <h3>Hotel Booking</h3>
                             <p>Handpicked accommodations to suit your style and budget, from luxury resorts to charming villas.</p>
-                            <a href="#contact" class="details-button">Inquire Now</a>
+                            <div class="card-buttons">
+                                <a href="#contact" class="details-button">Inquire Now</a>
+                                <button class="book-button" data-service="hotel">Book Now</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,7 +94,10 @@
                         <div class="card-back">
                             <h3>Airport Pickup</h3>
                             <p>Seamless and comfortable airport transfers to your hotel. Start your vacation stress-free!</p>
-                            <a href="#contact" class="details-button">Inquire Now</a>
+                            <div class="card-buttons">
+                                <a href="#contact" class="details-button">Inquire Now</a>
+                                <button class="book-button" data-service="pickup">Book Now</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -103,7 +110,10 @@
                         <div class="card-back">
                             <h3>Motorcycle Rental</h3>
                             <p>Explore Bali at your own pace with our reliable and well-maintained scooters and motorcycles.</p>
-                            <a href="#contact" class="details-button">Inquire Now</a>
+                            <div class="card-buttons">
+                                <a href="#contact" class="details-button">Inquire Now</a>
+                                <button class="book-button" data-service="rental">Book Now</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -116,7 +126,10 @@
                         <div class="card-back">
                             <h3>Custom Tours</h3>
                             <p>Tailor-made tours to Bali's iconic landmarks, hidden gems, and cultural experiences. (More details coming soon!)</p>
-                            <a href="#contact" class="details-button">Inquire Now</a>
+                            <div class="card-buttons">
+                                <a href="#contact" class="details-button">Inquire Now</a>
+                                <button class="book-button" data-service="tours">Book Now</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -173,6 +186,233 @@
             </form>
         </section>
     </main>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="booking-modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Book Your Service</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <!-- Hotel Booking Form -->
+                <div id="hotel-form" class="booking-form hidden">
+                    <h3>Hotel Booking</h3>
+                    <div class="form-group">
+                        <label for="hotel-checkin">Check-in Date:</label>
+                        <input type="date" id="hotel-checkin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hotel-checkout">Check-out Date:</label>
+                        <input type="date" id="hotel-checkout" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hotel-guests">Number of Guests:</label>
+                        <select id="hotel-guests" required>
+                            <option value="1">1 Guest</option>
+                            <option value="2" selected>2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5+">5+ Guests</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="hotel-type">Accommodation Type:</label>
+                        <select id="hotel-type" required>
+                            <option value="budget">Budget Hotel ($30-50/night)</option>
+                            <option value="mid-range" selected>Mid-range Hotel ($60-90/night)</option>
+                            <option value="luxury">Luxury Resort ($120-200/night)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Airport Pickup Form -->
+                <div id="pickup-form" class="booking-form hidden">
+                    <h3>Airport Pickup</h3>
+                    <div class="form-group">
+                        <label for="pickup-date">Pickup Date:</label>
+                        <input type="date" id="pickup-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pickup-time">Pickup Time:</label>
+                        <input type="time" id="pickup-time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pickup-passengers">Number of Passengers:</label>
+                        <select id="pickup-passengers" required>
+                            <option value="1" selected>1 Passenger</option>
+                            <option value="2">2 Passengers</option>
+                            <option value="3">3 Passengers</option>
+                            <option value="4">4 Passengers</option>
+                            <option value="5+">5+ Passengers</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pickup-flight">Flight Number (Optional):</label>
+                        <input type="text" id="pickup-flight" placeholder="e.g., GA123">
+                    </div>
+                    <div class="form-group">
+                        <label for="pickup-destination">Destination:</label>
+                        <input type="text" id="pickup-destination" placeholder="Hotel name or address" required>
+                    </div>
+                </div>
+
+                <!-- Motorcycle Rental Form -->
+                <div id="rental-form" class="booking-form hidden">
+                    <h3>Motorcycle Rental</h3>
+                    <div class="form-group">
+                        <label for="rental-start">Rental Start Date:</label>
+                        <input type="date" id="rental-start" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rental-end">Rental End Date:</label>
+                        <input type="date" id="rental-end" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bike-type">Motorcycle Type:</label>
+                        <select id="bike-type" required>
+                            <option value="scooter">Scooter 125k RP ($5/day)</option>
+                            <option value="standard" selected>Standard 150k RP ($6/day)</option>
+                            <option value="premium">Premium 250k RP ($8/day)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rental-insurance">Insurance:</label>
+                        <select id="rental-insurance" required>
+                            <option value="basic" selected>Basic Coverage (Included)</option>
+                            <option value="full">Full Coverage (+$2/day)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Custom Tours Form -->
+                <div id="tours-form" class="booking-form hidden">
+                    <h3>Custom Tours</h3>
+                    <div class="form-group">
+                        <label for="tour-date">Tour Date:</label>
+                        <input type="date" id="tour-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tour-participants">Number of Participants:</label>
+                        <select id="tour-participants" required>
+                            <option value="1">1 Person</option>
+                            <option value="2" selected>2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5+">5+ People</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tour-type">Tour Type:</label>
+                        <select id="tour-type" required>
+                            <option value="cultural">Cultural Tour ($35/person)</option>
+                            <option value="nature" selected>Nature & Temples ($45/person)</option>
+                            <option value="adventure">Adventure Tour ($60/person)</option>
+                            <option value="custom">Custom Itinerary ($75/person)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tour-duration">Duration:</label>
+                        <select id="tour-duration" required>
+                            <option value="half">Half Day (4 hours)</option>
+                            <option value="full" selected>Full Day (8 hours)</option>
+                            <option value="multi">Multi-day</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Customer Information (Common for all services) -->
+                <div class="customer-info">
+                    <h3>Your Information</h3>
+                    <div class="form-group">
+                        <label for="customer-name">Full Name:</label>
+                        <input type="text" id="customer-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-email">Email:</label>
+                        <input type="email" id="customer-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-phone">Phone Number:</label>
+                        <input type="tel" id="customer-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="special-requests">Special Requests (Optional):</label>
+                        <textarea id="special-requests" rows="3" placeholder="Any special requirements or preferences..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Pricing Summary -->
+                <div class="pricing-summary">
+                    <h3>Booking Summary</h3>
+                    <div class="price-breakdown">
+                        <div class="price-line">
+                            <span class="price-label">Service:</span>
+                            <span class="price-value" id="service-description">-</span>
+                        </div>
+                        <div class="price-line">
+                            <span class="price-label">Duration/Quantity:</span>
+                            <span class="price-value" id="duration-description">-</span>
+                        </div>
+                        <div class="price-line total-price">
+                            <span class="price-label">Total Price:</span>
+                            <span class="price-value" id="total-price">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cancel-button">Cancel</button>
+                <button type="button" class="confirm-booking-button">Confirm Booking</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Confirmation Modal -->
+    <div id="confirmation-modal" class="booking-modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Booking Confirmed!</h2>
+                <span class="close-confirmation">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="confirmation-content">
+                    <div class="check-icon">✓</div>
+                    <h3>Your booking has been confirmed!</h3>
+                    <div class="booking-details">
+                        <p><strong>Booking ID:</strong> <span id="booking-id"></span></p>
+                        <p><strong>Service:</strong> <span id="confirmed-service"></span></p>
+                        <p><strong>Total Price:</strong> <span id="confirmed-price"></span></p>
+                        <p><strong>Customer:</strong> <span id="confirmed-customer"></span></p>
+                    </div>
+                    <p class="confirmation-note">We will contact you within 24 hours to finalize the details.</br> A confirmation email has been sent to your email address.</br>  Please save your booking ID for reference.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="close-confirmation-button">Close</button>
+                <button type="button" class="view-bookings-button">View My Bookings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Notification Modal -->
+    <div id="notification-modal" class="booking-modal hidden">
+        <div class="modal-content notification-content">
+            <div class="modal-header">
+                <h2 id="notification-title">Notification</h2>
+                <span class="close-notification">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="notification-message">
+                    <div id="notification-icon" class="notification-icon">ℹ️</div>
+                    <p id="notification-text">This is a notification message.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="close-notification-button">OK</button>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2025 Bali Bliss Travels. All Rights Reserved.</p>
