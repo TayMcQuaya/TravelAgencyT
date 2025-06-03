@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bali Bliss Travels - Your Dream Bali Getaway</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Bali Bliss Travels</div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about-bali">About Bali</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <!-- 
+            TO USE A GIF INSTEAD OF VIDEO:
+            1. Save your GIF file as "bali-hero.gif" in the same folder as this HTML file
+            2. Add class="gif-background" to the hero section line above like this:
+               <section id="hero" class="gif-background">
+            3. The GIF will automatically loop and be displayed as the background
+            
+            Current setup uses video - you can switch to GIF using the steps above
+            -->
+            <video autoplay loop muted playsinline id="hero-video">
+                <source src="videos/bali-hero.mp4" type="video/mp4">
+                <!-- You can add more source types for broader browser compatibility -->
+                <!-- e.g., <source src="videos/bali-hero.webm" type="video/webm"> -->
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-content">
+                <h1>Discover the Magic of Bali</h1>
+                <p>Your unforgettable journey starts here. We craft personalized Bali experiences.</p>
+                <a href="#services" class="cta-button">Explore Packages</a>
+            </div>
+        </section>
+
+        <section id="about-bali">
+            <h2>Experience the Island of Gods</h2>
+            <div class="bali-insights">
+                <div class="insight-card">
+                    <img src="culture.jpg" alt="Balinese Culture">
+                    <h3>Rich Culture</h3>
+                    <p>Immerse yourself in ancient traditions, vibrant ceremonies, and unique arts.</p>
+                </div>
+                <div class="insight-card">
+                    <img src="nature.jpg" alt="Bali Nature">
+                    <h3>Stunning Nature</h3>
+                    <p>From lush rice paddies and volcanic mountains to pristine beaches and coral reefs.</p>
+                </div>
+                <div class="insight-card">
+                    <img src="adventure.jpg" alt="Bali Adventure">
+                    <h3>Endless Adventures</h3>
+                    <p>Surf world-class waves, dive into vibrant underwater worlds, or hike scenic trails.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>We take care of everything, so you can focus on enjoying your Bali adventure.</p>
+            <div class="service-packages">
+                <div class="package-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="hotel.jpg" alt="Hotel Booking">
+                            <h3>Hotel Booking</h3>
+                        </div>
+                        <div class="card-back">
+                            <h3>Hotel Booking</h3>
+                            <p>Handpicked accommodations to suit your style and budget, from luxury resorts to charming villas.</p>
+                            <a href="#contact" class="details-button">Inquire Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="pickup.jpg" alt="Airport Pickup">
+                            <h3>Airport Pickup</h3>
+                        </div>
+                        <div class="card-back">
+                            <h3>Airport Pickup</h3>
+                            <p>Seamless and comfortable airport transfers to your hotel. Start your vacation stress-free!</p>
+                            <a href="#contact" class="details-button">Inquire Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="rental.jpg" alt="Motorcycle Rental">
+                            <h3>Motorcycle Rental</h3>
+                        </div>
+                        <div class="card-back">
+                            <h3>Motorcycle Rental</h3>
+                            <p>Explore Bali at your own pace with our reliable and well-maintained scooters and motorcycles.</p>
+                            <a href="#contact" class="details-button">Inquire Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="tours.jpg" alt="Custom Tours">
+                            <h3>Custom Tours</h3>
+                        </div>
+                        <div class="card-back">
+                            <h3>Custom Tours</h3>
+                            <p>Tailor-made tours to Bali's iconic landmarks, hidden gems, and cultural experiences. (More details coming soon!)</p>
+                            <a href="#contact" class="details-button">Inquire Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <p>Ready to plan your dream Bali vacation? Contact us today!</p>
+            <div class="contact-info">
+                <p><strong>WhatsApp:</strong> +62 895-4263-73322</p>
+                <p><strong>Email:</strong> cindyayurv.de@gmail.com</p>
+            </div>
+            
+            <!-- Success Message (initially hidden) -->
+            <div id="success-message" class="success-message hidden">
+                <div class="check-icon">✓</div>
+                <h3>Message Sent Successfully!</h3>
+                <p>Thank you for contacting us! We have received your message and will get back to you within 24 hours.</p>
+                <p>We'll help you plan the perfect Bali adventure!</p>
+            </div>
+            
+            <!-- Contact Form -->
+            <form id="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_FORM_ID" method="POST">
+                <h3>Send us a Message</h3>
+                
+                <!-- Package Selection -->
+                <div class="package-selection">
+                    <h4>Which services are you interested in? (Optional)</h4>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="hotel-booking" name="services" value="Hotel Booking">
+                            <label for="hotel-booking">Hotel Booking</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="airport-pickup" name="services" value="Airport Pickup">
+                            <label for="airport-pickup">Airport Pickup</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="motorcycle-rental" name="services" value="Motorcycle Rental">
+                            <label for="motorcycle-rental">Motorcycle Rental</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="custom-tours" name="services" value="Custom Tours">
+                            <label for="custom-tours">Custom Tours</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="_replyto" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bali Bliss Travels. All Rights Reserved.</p>
+        <p>Website designed with <span style="color: red;">&hearts;</span> by Cindy Ayu Ridho Varrissa</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

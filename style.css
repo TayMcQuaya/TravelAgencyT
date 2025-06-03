@@ -1,0 +1,681 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif; /* Using Arial as a fallback, will suggest a more modern font later */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4; /* Light grey background for the page */
+    color: #333; /* Dark grey for text */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%; /* Ensure full width */
+    max-width: 100vw; /* Never exceed viewport width */
+}
+
+/* Ensure all sections stay within bounds */
+main {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
+}
+
+/* Header and Navigation */
+header {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%); /* Subtle gradient instead of flat white */
+    color: #333;
+    padding: 1rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Enhanced shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure header stays on top */
+    width: 100%;
+    backdrop-filter: blur(10px); /* Modern glass effect */
+    -webkit-backdrop-filter: blur(10px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+nav .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #0077cc; /* A nice blue for the logo */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center; /* Center align items vertically */
+}
+
+nav ul li {
+    margin-left: 35px; /* Increased from 20px for better spacing */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1rem; /* Increased from default for larger text */
+    transition: color 0.3s ease;
+    padding: 8px 12px; /* Add padding for better click area */
+}
+
+nav ul li a:hover {
+    color: #005fa3; /* Darker blue on hover */
+    background-color: rgba(0, 119, 204, 0.1); /* Subtle background on hover */
+    border-radius: 4px; /* Rounded corners for hover effect */
+}
+
+/* Hero Section */
+#hero {
+    /* background: url('placeholder-hero.jpg') no-repeat center center/cover; */ /* Remove or comment out the image background */
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden; /* Important to contain the video */
+}
+
+#hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Place video behind content and overlay */
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+}
+
+/* Alternative GIF background support */
+#hero.gif-background {
+    background: url('bali-hero.gif') no-repeat center center/cover;
+}
+
+#hero.gif-background #hero-video {
+    display: none; /* Hide video when using GIF */
+}
+
+#hero::before { /* Overlay for better text readability */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.hero-content {
+    position: relative; /* To be on top of the overlay */
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Enhanced CTA Button */
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6600 0%, #ff8533 100%); /* Gradient background */
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 8px; /* More rounded corners */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3); /* Orange glow */
+    font-weight: 600; /* Bolder text */
+    text-transform: uppercase; /* Uppercase for impact */
+    letter-spacing: 1px; /* Spaced letters */
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, #cc5200 0%, #e64a00 100%);
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 6px 20px rgba(255, 102, 0, 0.4); /* Enhanced glow */
+}
+
+/* General Section Styling */
+section {
+    padding: 4rem 10px; /* Minimal side padding */
+    text-align: center;
+    overflow-x: hidden; /* Prevent horizontal scrolling in sections */
+    width: 100%; /* Full width */
+    max-width: 100vw;
+    margin: 0; /* Remove margins */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #0077cc;
+}
+
+section > p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+}
+
+/* About Bali Section - Insight Cards */
+.bali-insights {
+    display: flex;
+    justify-content: space-around; /* Changed back to space-around for original gaps */
+    flex-wrap: nowrap; /* Prevent wrapping on desktop */
+    gap: 50px; /* Increased gap for more spacing between larger cards */
+    max-width: 1800px; /* Much wider container for huge cards */
+    margin: 0 auto; /* Center the container */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    padding: 0 30px; /* Increased padding for breathing room */
+}
+
+.insight-card {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%); /* Subtle gradient background */
+    padding: 35px; /* Increased padding for larger cards */
+    border-radius: 20px; /* More rounded corners for larger size */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15); /* Larger shadow for bigger cards */
+    width: 30%; /* Keep 30% for 3 cards per row */
+    min-width: 500px; /* Much larger minimum width for huge cards */
+    max-width: 650px; /* Much larger maximum width for huge cards */
+    text-align: left;
+    transition: all 0.4s ease; /* Smoother and longer transition */
+    border: 1px solid rgba(0, 119, 204, 0.1); /* Subtle border */
+    flex-shrink: 1; /* Allow shrinking if needed */
+}
+
+.insight-card:hover {
+    transform: translateY(-8px); /* More pronounced lift from -5px */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15); /* Enhanced shadow on hover */
+    border-color: rgba(0, 119, 204, 0.2); /* More visible border on hover */
+}
+
+.insight-card img {
+    width: 100%;
+    height: 250px; /* Increased height for larger widescreen images */
+    object-fit: cover; /* Ensure image covers the area well */
+    border-radius: 15px; /* More rounded corners for larger cards */
+    margin-bottom: 25px; /* Increased spacing for larger cards */
+    transition: transform 0.3s ease; /* Add transition to image */
+}
+
+.insight-card h3 {
+    font-size: 1.8rem; /* Larger font for bigger cards */
+    color: #0077cc;
+    margin-bottom: 15px;
+    font-weight: 700; /* Bolder text */
+    text-align: center;
+}
+
+.insight-card p {
+    color: #555;
+    line-height: 1.7; /* Better line spacing */
+    font-size: 1.1rem; /* Larger text for bigger cards */
+}
+
+/* Services Section - Package Cards with 3D Flip */
+.service-packages {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 2rem;
+    overflow: hidden; /* Prevent horizontal scroll on card hover */
+    padding: 0 20px; /* Ensure cards stay within bounds */
+}
+
+.package-card {
+    background-color: transparent; /* Needed for 3D effect */
+    width: 280px;
+    height: 400px; /* Increased from 380px to accommodate larger images */
+    perspective: 1000px; /* Depth for 3D effect */
+    cursor: pointer;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.package-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* For Safari */
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #0077cc 0%, #005fa3 100%); /* Enhanced gradient */
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 119, 204, 0.3); /* Blue glow */
+}
+
+.card-front img {
+    width: 180px; /* Increased from 150px to 180px for larger images */
+    height: 180px; /* Increased from 150px to 180px for larger images */
+    object-fit: cover;
+    border-radius: 50%; /* Circular images */
+    margin-bottom: 10px; /* Reduced margin to fit better */
+    border: 3px solid white;
+}
+
+.card-front h3 {
+    font-size: 1.4rem; /* Slightly smaller to accommodate larger image */
+    margin: 5px 0 0 0;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #005fa3 0%, #003d73 100%); /* Enhanced gradient */
+    color: white;
+    transform: rotateY(180deg);
+    box-shadow: 0 4px 15px rgba(0, 95, 163, 0.4); /* Darker blue glow */
+}
+
+.card-back h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.card-back p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.details-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6600 0%, #ff8533 100%); /* Gradient to match CTA */
+    color: #fff;
+    padding: 12px 24px; /* Increased padding */
+    text-decoration: none;
+    border-radius: 6px; /* More rounded */
+    font-size: 1rem;
+    font-weight: 600; /* Bolder text */
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(255, 102, 0, 0.3); /* Orange glow */
+}
+
+.details-button:hover {
+    background: linear-gradient(135deg, #cc5200 0%, #e64a00 100%);
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 5px 15px rgba(255, 102, 0, 0.4); /* Enhanced glow */
+}
+
+/* Contact Section */
+#contact {
+    background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%); /* Enhanced gradient */
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.contact-info strong {
+    color: #0077cc;
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: 2rem auto 0 auto;
+    padding: 30px; /* Increased padding */
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%); /* Subtle gradient */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Enhanced shadow */
+    border: 1px solid rgba(0, 119, 204, 0.1); /* Subtle border */
+}
+
+#contact-form h3 {
+    font-size: 1.8rem;
+    color: #0077cc;
+    margin-bottom: 20px;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: calc(100% - 22px); /* Full width minus padding and border */
+    padding: 12px; /* Increased padding */
+    margin-bottom: 20px; /* Increased spacing */
+    border: 2px solid #e9ecef; /* Thicker border */
+    border-radius: 8px; /* More rounded */
+    font-size: 1rem;
+    transition: all 0.3s ease; /* Smooth transitions */
+    background-color: #fff;
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form textarea:focus {
+    border-color: #0077cc; /* Blue border on focus */
+    box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.1); /* Focus glow */
+    outline: none; /* Remove default outline */
+}
+
+#contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#contact-form button[type="submit"] {
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    background-color: #333; /* Dark background for footer */
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        justify-content: center; /* Center the nav content on mobile */
+        text-align: center; /* Center align text */
+    }
+    
+    nav .logo {
+        text-align: center; /* Center the logo text */
+        width: 100%; /* Take full width */
+    }
+    
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Adjust based on header height */
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: none; /* Initially hidden on mobile */
+        /* Add JS to toggle this later */
+    }
+
+    nav ul.active {
+        display: flex; /* Show when active */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    /* Add a menu toggle button - HTML needed for this */
+    /* .menu-toggle { display: block; } */
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    /* Allow wrapping on mobile for insight cards */
+    .bali-insights {
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        justify-content: center; /* Center on mobile */
+        gap: 15px; /* Reduced gap for mobile */
+        padding: 0 10px; /* Minimal padding */
+        margin: 0; /* Remove margin */
+        width: 100%; /* Full width */
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    .insight-card {
+        width: calc(100% - 20px); /* Full width minus minimal margins */
+        margin: 0 10px 20px 10px; /* Minimal equal margins on both sides */
+        max-width: 400px; /* Limit maximum width */
+        min-width: unset; /* Remove min-width on mobile */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    .insight-card img {
+        height: 180px; /* Maintain widescreen aspect on mobile */
+    }
+
+    .package-card {
+        width: calc(100% - 20px); /* Full width minus minimal margins */
+        margin: 0 10px 30px 10px; /* Minimal equal margins on both sides */
+        max-width: 300px; /* Limit maximum width */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    .card-front img {
+        width: 140px; /* Adjusted for mobile */
+        height: 140px;
+    }
+
+    #contact-form input[type="text"],
+    #contact-form input[type="email"],
+    #contact-form textarea {
+        width: calc(100% - 24px); /* Adjusted for new padding */
+    }
+    
+    .checkbox-group {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+    
+    /* Ensure sections don't overflow and are properly centered */
+    .bali-insights,
+    .service-packages {
+        justify-content: center;
+        padding: 0 10px; /* Minimal padding */
+        margin: 0; /* Remove margin */
+        width: 100%; /* Full width */
+        box-sizing: border-box; /* Include padding in width */
+    }
+}
+
+@media (max-width: 480px) {
+    nav .logo {
+        font-size: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .insight-card,
+    .package-card {
+        width: calc(100% - 20px); /* Consistent with tablet breakpoint */
+        margin: 0 10px 20px 10px; /* Consistent minimal margins */
+        min-width: unset; /* Remove min-width */
+        max-width: calc(100vw - 20px); /* Ensure never exceeds viewport */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    .insight-card img {
+        height: 160px; /* Maintain widescreen aspect on very small screens */
+    }
+    
+    .card-front img {
+        width: 120px; /* Smaller for very small screens */
+        height: 120px;
+    }
+
+    section {
+        padding: 2rem 10px; /* Consistent minimal padding */
+        margin: 0; /* Remove margins */
+        width: 100%; /* Full width */
+        box-sizing: border-box; /* Include padding in width */
+    }
+    
+    /* Extra small screen adjustments */
+    nav {
+        padding: 0 10px; /* Consistent minimal nav padding */
+        margin: 0; /* Remove margins */
+        box-sizing: border-box; /* Include padding in width */
+    }
+    
+    .hero-content {
+        padding: 0 10px; /* Consistent minimal padding to hero content */
+        margin: 0; /* Remove margins */
+    }
+    
+    /* Ensure form inputs don't overflow */
+    #contact-form {
+        margin: 2rem 10px 0 10px; /* Consistent minimal margins */
+        padding: 20px; /* Reduce padding */
+        max-width: calc(100vw - 20px); /* Never exceed viewport */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    #contact-form input[type="text"],
+    #contact-form input[type="email"],
+    #contact-form textarea {
+        width: calc(100% - 24px); /* Account for padding and border */
+        max-width: 100%;
+    }
+    
+    .package-selection {
+        padding: 15px; /* Reduce padding */
+    }
+    
+    .service-packages {
+        padding: 0; /* Remove padding that could cause shifts */
+    }
+}
+
+/* Success Message Styles - Windows Design */
+.success-message {
+    background-color: #f0f8ff;
+    border: 2px solid #0078d4;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 2rem auto 0 auto;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 120, 212, 0.15);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.success-message h3 {
+    color: #0078d4;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.success-message p {
+    color: #323130;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.success-message .check-icon {
+    width: 48px;
+    height: 48px;
+    background-color: #107c10;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 24px;
+}
+
+/* Package Selection Styles */
+.package-selection {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.package-selection h4 {
+    color: #0077cc;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    text-align: left;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    accent-color: #0077cc;
+}
+
+.checkbox-item label {
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Hidden class for form/success toggle */
+.hidden {
+    display: none !important;
+}
+
+#services {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%; /* Ensure full width */
+    max-width: 100vw; /* Never exceed viewport width */
+} 
